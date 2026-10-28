@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Механический факультет - БГУТ</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html, body {
+            height: 100vh;
+            overflow: hidden; /* Без скролла */
+        }
+
+        body {
+            /* Фоновое изображение */
+            background-image: url('fon.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            color: #ffffff;
+            position: relative;
+            padding: 20px 25px;
+        }
+
+        /* Полупрозрачное затемнение фона для лучшей читаемости */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 244, 248, 0.88);
+            z-index: -1;
+        }
+
+        /* Шапка сайта */
+        .header-container {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #0d1b2a 0%, #1b263b 50%, #003087 100%);
+            border-radius: 14px;
+            padding: 14px 28px;
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-logo {
+            width: 44px;
+            height: 44px;
+            object-fit: contain;
+        }
+
+        .logo-text h1 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.3px;
+            line-height: 1.2;
+        }
+
+        /* Основной контент */
+        main {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+            justify-content: center;
+        }
+
+        /* Заголовок страницы (увеличен) */
+        .page-title {
+            text-align: center;
+            font-size: 38px;
+            font-weight: 800;
+            color: #0d1b2a;
+            margin-bottom: 25px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        /* Контейнер карточек специальностей */
+        .cards-container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 18px;
+        }
+
+        /* Карточка специальности */
+        .specialty-card {
+            background: linear-gradient(145deg, #0d1b2a, #1b263b);
+            border-radius: 16px;
+            padding: 22px 18px;
+            box-shadow: 0 10px 25px rgba(13, 27, 42, 0.25);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid rgba(58, 134, 255, 0.2);
+            height: 275px; /* Увеличена высота под свободное место */
+        }
+
+        .specialty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0, 48, 135, 0.35);
+            border-color: #3a86ff;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            font-size: 12.5px;
+            color: #ced4da;
+            line-height: 1.45;
+        }
+
+        /* Секция с кнопкой квеста */
+        .quest-section {
+            text-align: center;
+            margin-top: 28px;
+            margin-bottom: 10px;
+        }
+
+        .quest-btn {
+            background: linear-gradient(135deg, #3a86ff, #003087);
+            color: #ffffff;
+            border: none;
+            padding: 14px 42px;
+            font-size: 17px;
+            font-weight: 700;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(58, 134, 255, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .quest-btn:hover {
+            background: linear-gradient(135deg, #003087, #3a86ff);
+            transform: scale(1.04);
+            box-shadow: 0 8px 22px rgba(58, 134, 255, 0.6);
+        }
+
+        /* Адаптивность */
+        @media (max-width: 1100px) {
+            .cards-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .specialty-card {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Шапка страницы -->
+    <header class="header-container">
+        <img src="emblema.png" alt="Эмблема БГУТ" class="header-logo">
+        <div class="logo-text">
+            <h1>Белорусский государственный университет пищевых и химических технологий</h1>
+        </div>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <h2 class="page-title">Механический факультет</h2>
+
+        <!-- Карточки специальностей -->
+        <div class="cards-container">
+            <!-- Специальность 1 -->
+            <div class="specialty-card">
+                <h3 class="card-title">Автоматизация технологических процессов и производств</h3>
+                <p class="card-desc">Разработка систем управления современными промышленными линиями и роботизированными комплексами.</p>
+            </div>
+
+            <!-- Специальность 2 -->
+            <div class="specialty-card">
+                <h3 class="card-title">Интеллектуальные технико-технологические системы в пищевых производствах</h3>
+                <p class="card-desc">Интеграция искусственного интеллекта и умных датчиков в оборудование пищевой промышленности.</p>
+            </div>
+
+            <!-- Специальность 3 -->
+            <div class="specialty-card">
+                <h3 class="card-title">Информационные системы и технологии</h3>
+                <p class="card-desc">Создание программного обеспечения, баз данных и корпоративных систем автоматизации предприятий.</p>
+            </div>
+
+            <!-- Специальность 4 -->
+            <div class="specialty-card">
+                <h3 class="card-title">Оборудование и технологии вакуумной, компрессорной и низкотемпературной техники</h3>
+                <p class="card-desc">Проектирование холодильных установок, криогенных систем и вакуумного оборудования.</p>
+            </div>
+
+            <!-- Специальность 5 -->
+            <div class="specialty-card">
+                <h3 class="card-title">Экологическая безопасность</h3>
+                <p class="card-desc">Защита окружающей среды, мониторинг промышленных выбросов и внедрение зеленых технологий.</p>
+            </div>
+        </div>
+
+        <!-- Кнопка перехода к квесту -->
+        <div class="quest-section">
+            <a href="game.html" class="quest-btn">Начать квест</a>
+        </div>
+    </main>
+
+    <div></div>
+
+</body>
+</html>
