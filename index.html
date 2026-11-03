@@ -14,11 +14,10 @@
 
         html, body {
             height: 100vh;
-            overflow: hidden; /* Без скролла */
+            overflow: hidden;
         }
 
         body {
-            /* Фоновое изображение */
             background-image: url('fon.jpg');
             background-size: cover;
             background-position: center;
@@ -31,7 +30,6 @@
             padding: 20px 25px;
         }
 
-        /* Полупрозрачное затемнение фона для лучшей читаемости */
         body::before {
             content: '';
             position: absolute;
@@ -43,7 +41,6 @@
             z-index: -1;
         }
 
-        /* Шапка сайта */
         .header-container {
             width: 100%;
             max-width: 1300px;
@@ -71,7 +68,6 @@
             line-height: 1.2;
         }
 
-        /* Основной контент */
         main {
             width: 100%;
             max-width: 1300px;
@@ -83,7 +79,6 @@
             justify-content: center;
         }
 
-        /* Заголовок страницы (увеличен) */
         .page-title {
             text-align: center;
             font-size: 38px;
@@ -94,7 +89,6 @@
             text-transform: uppercase;
         }
 
-        /* Контейнер карточек специальностей */
         .cards-container {
             width: 100%;
             display: grid;
@@ -102,7 +96,6 @@
             gap: 18px;
         }
 
-        /* Карточка специальности */
         .specialty-card {
             background: linear-gradient(145deg, #0d1b2a, #1b263b);
             border-radius: 16px;
@@ -110,10 +103,11 @@
             box-shadow: 0 10px 25px rgba(13, 27, 42, 0.25);
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
+            justify-content: space-between;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
             border: 1px solid rgba(58, 134, 255, 0.2);
-            height: 275px; /* Увеличена высота под свободное место */
+            height: 290px;
+            text-decoration: none;
         }
 
         .specialty-card:hover {
@@ -136,50 +130,27 @@
             line-height: 1.45;
         }
 
-        /* Секция с кнопкой квеста */
-        .quest-section {
-            text-align: center;
-            margin-top: 28px;
-            margin-bottom: 10px;
-        }
-
-        .quest-btn {
-            background: linear-gradient(135deg, #3a86ff, #003087);
-            color: #ffffff;
-            border: none;
-            padding: 14px 42px;
-            font-size: 17px;
-            font-weight: 700;
-            border-radius: 30px;
-            cursor: pointer;
-            box-shadow: 0 6px 18px rgba(58, 134, 255, 0.4);
-            transition: all 0.3s ease;
+        .card-action {
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #38bdf8;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            text-decoration: none;
-            display: inline-block;
+            letter-spacing: 0.5px;
         }
 
-        .quest-btn:hover {
-            background: linear-gradient(135deg, #003087, #3a86ff);
-            transform: scale(1.04);
-            box-shadow: 0 8px 22px rgba(58, 134, 255, 0.6);
-        }
-
-        /* Адаптивность */
         @media (max-width: 1100px) {
             .cards-container {
                 grid-template-columns: repeat(3, 1fr);
             }
             .specialty-card {
-                height: 250px;
+                height: 270px;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- Шапка страницы -->
     <header class="header-container">
         <img src="emblema.png" alt="Эмблема БГУТ" class="header-logo">
         <div class="logo-text">
@@ -187,46 +158,54 @@
         </div>
     </header>
 
-    <!-- Основной контент -->
     <main>
         <h2 class="page-title">Механический факультет</h2>
 
-        <!-- Карточки специальностей -->
         <div class="cards-container">
             <!-- Специальность 1 -->
-            <div class="specialty-card">
-                <h3 class="card-title">Автоматизация технологических процессов и производств</h3>
-                <p class="card-desc">Разработка систем управления современными промышленными линиями и роботизированными комплексами.</p>
+            <div class="specialty-card" style="cursor: default;">
+                <div>
+                    <h3 class="card-title">Автоматизация технологических процессов и производств</h3>
+                    <p class="card-desc">Разработка систем управления современными промышленными линиями и роботизированными комплексами.</p>
+                </div>
+                <div class="card-action" style="color: #94a3b8;">Скоро</div>
             </div>
 
             <!-- Специальность 2 -->
-            <div class="specialty-card">
-                <h3 class="card-title">Интеллектуальные технико-технологические системы в пищевых производствах</h3>
-                <p class="card-desc">Интеграция искусственного интеллекта и умных датчиков в оборудование пищевой промышленности.</p>
+            <div class="specialty-card" style="cursor: default;">
+                <div>
+                    <h3 class="card-title">Интеллектуальные технико-технологические системы в пищевых производствах</h3>
+                    <p class="card-desc">Интеграция искусственного интеллекта и умных датчиков в оборудование пищевой промышленности.</p>
+                </div>
+                <div class="card-action" style="color: #94a3b8;">Скоро</div>
             </div>
 
-            <!-- Специальность 3 -->
-            <div class="specialty-card">
-                <h3 class="card-title">Информационные системы и технологии</h3>
-                <p class="card-desc">Создание программного обеспечения, баз данных и корпоративных систем автоматизации предприятий.</p>
-            </div>
+            <!-- Специальность 3: Информационные системы и технологии -> ведет на game.html -->
+            <a href="game.html" class="specialty-card">
+                <div>
+                    <h3 class="card-title">Информационные системы и технологии</h3>
+                    <p class="card-desc">Создание программного обеспечения, баз данных и корпоративных систем автоматизации предприятий.</p>
+                </div>
+                <div class="card-action">Начать квест ➔</div>
+            </a>
 
-            <!-- Специальность 4 -->
-            <div class="specialty-card">
-                <h3 class="card-title">Оборудование и технологии вакуумной, компрессорной и низкотемпературной техники</h3>
-                <p class="card-desc">Проектирование холодильных установок, криогенных систем и вакуумного оборудования.</p>
-            </div>
+            <!-- Специальность 4: Оборудование и технологии вакуумной... -> ведет на game1.html -->
+            <a href="game1.html" class="specialty-card">
+                <div>
+                    <h3 class="card-title">Оборудование и технологии вакуумной, компрессорной и низкотемпературной техники</h3>
+                    <p class="card-desc">Проектирование холодильных установок, криогенных систем и вакуумного оборудования.</p>
+                </div>
+                <div class="card-action">Начать квест ➔</div>
+            </a>
 
             <!-- Специальность 5 -->
-            <div class="specialty-card">
-                <h3 class="card-title">Экологическая безопасность</h3>
-                <p class="card-desc">Защита окружающей среды, мониторинг промышленных выбросов и внедрение зеленых технологий.</p>
+            <div class="specialty-card" style="cursor: default;">
+                <div>
+                    <h3 class="card-title">Экологическая безопасность</h3>
+                    <p class="card-desc">Защита окружающей среды, мониторинг промышленных выбросов и внедрение зеленых технологий.</p>
+                </div>
+                <div class="card-action" style="color: #94a3b8;">Скоро</div>
             </div>
-        </div>
-
-        <!-- Кнопка перехода к квесту -->
-        <div class="quest-section">
-            <a href="game.html" class="quest-btn">Начать квест</a>
         </div>
     </main>
 
